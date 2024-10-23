@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', login, name='login'),
     path('authentication/',include('authentication.urls')),
-    # path('dashboard/',include('dashboard.urls')),
-    # path('ecommerce/',include('ecommerce.urls')),
+    path('dashboard/',include('dashboard.urls')),
+    path('ecommerce/',include('ecommerce.urls')),
 ]
