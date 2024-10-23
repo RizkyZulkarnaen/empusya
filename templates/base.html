@@ -1,0 +1,43 @@
+{% load compress %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="overflow-y-auto no-scrollbar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script> -->
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+    {% block style %}
+    {% endblock style %}
+    <title>
+        {% block title %} {% endblock title %}
+    </title>
+    {% block headscript %}
+    {% endblock headscript %}
+</head>
+
+<body class="bg-gray-100 dark:bg-neutral-900">
+    {% include "layouts/navbar.html"%}
+    <main id="content">
+        {% include "layouts/main_content.html"%}
+        <div class="max-w-[85rem] min-h-[75rem] mx-auto py-10 px-4 sm:px-6 lg:px-8">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </main>
+    {{ redirect_to_login_immediately }}
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+<script src="{% static 'preline/dist/preline.js' %}"></script>
+{% block script %}
+{% endblock script %}
+</html>
