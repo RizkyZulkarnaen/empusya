@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "flowbite": "^2.5.2",
+    "nouislider": "^15.8.1",
     "preline": "^2.5.1"
   }
 }
